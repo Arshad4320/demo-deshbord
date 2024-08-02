@@ -17,7 +17,9 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const MobileNavber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   const routing = (
     <>
       <Link
@@ -56,35 +58,6 @@ const MobileNavber = () => {
   return (
     <div className=" ">
       <div className=" bg-white block lg:hidden fixed z-10 top-0 w-full  shadow-md">
-        <div className=" bg-primary     flex justify-between px-4 py-1 ">
-          <div className="flex items-center">
-            {" "}
-            <p className="text-md font-medium duration-500  hover:text-gray-200 text-white">
-              Hotline : +8801765246664
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <a
-              className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center"
-              href="https://www.facebook.com"
-            >
-              <FaFacebookF className="     text-xl  text-white " />
-            </a>
-
-            <a
-              href="#"
-              className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center"
-            >
-              <FaLinkedinIn className="     text-xl  text-white " />
-            </a>
-            <a
-              href="#"
-              className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center"
-            >
-              <FaWhatsapp className="     text-xl  text-white " />
-            </a>
-          </div>
-        </div>
         <div className="flex justify-between   items-center mx-4 ">
           <button
             onClick={toggleMenu}
