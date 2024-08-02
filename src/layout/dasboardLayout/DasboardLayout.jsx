@@ -25,7 +25,7 @@ const DasboardLayout = () => {
         />
 
         <div
-          className={`bg-[#EEF2F5]  min-h-screen w-full duration-300  ${
+          className={`bg-secondary min-h-screen w-full duration-300  ${
             !isCollups ? " ml-[5%] hidden lg:block" : "lg:pl-[20%]"
           }`}
         >
