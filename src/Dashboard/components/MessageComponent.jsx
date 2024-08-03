@@ -1,10 +1,11 @@
 import React from "react";
 import Heading from "./Heading";
-
+import img from "../../assets/download.jpg";
+import Button from "./Button";
 const MessageComponent = () => {
   return (
     <div className=" bg-white p-6 mb-4 ">
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between ">
         <div>
           <div>
             <Heading props={" I'm Looking for Massage Therapist Near..."} />
@@ -27,12 +28,15 @@ const MessageComponent = () => {
               type="text"
               placeholder="ZIP code or city name "
             />
-            <button className="bg-primary px-6 rounded-md rounded-l-none py-2 text-white">
+            <button className="bg-primary px-6 rounded-md rounded-l-none py-2 text-white hover:bg-[#D4E9FF] hover:text-gray-800">
               Go
             </button>
+            {/* <Button className={""} props={"Go"} /> */}
           </div>
         </div>
-        <div>img div</div>
+        <div className="flex justify-center items-center md:block w-full md:w-96  ">
+          <img className="w-full h-full" src={img} alt="" />
+        </div>
       </div>
     </div>
   );

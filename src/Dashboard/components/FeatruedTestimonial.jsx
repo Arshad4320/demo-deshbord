@@ -25,9 +25,12 @@ const FeatruedTestimonial = () => {
   return (
     <div>
       <Heading props={"Testomonial"} />
-      <div className="bg-white  p-4 mt-3">
+      <div className="bg-white flex flex-col gap-4  rounded-md p-4 mt-3">
         {carts.map((cart) => (
-          <div className="flex gap-4 mb-4 border p-3 rounded-md" key={cart.id}>
+          <div
+            className="flex flex-col sm:flex-row gap-4  border p-3 rounded-md"
+            key={cart.id}
+          >
             <div className="w-full h-44 ">
               <img className="w-full h-full rounded-md" src={cart.img} alt="" />
             </div>
