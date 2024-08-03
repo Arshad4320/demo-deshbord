@@ -55,7 +55,7 @@ const CardCarusol = () => {
         breakpoint: 400,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: false,
         },
@@ -63,7 +63,7 @@ const CardCarusol = () => {
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -90,7 +90,7 @@ const CardCarusol = () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -101,19 +101,19 @@ const CardCarusol = () => {
   const slider = React.useRef(null);
 
   return (
-    <div className="mx-8 mb-8">
+    <div>
       <div className="relative mx-4  md:mx-7 lg:mx-4">
         <button className="" onClick={() => slider?.current?.slickNext()}>
-          <RiArrowDropRightLine className=" mt-36 absolute  right-[0] lg:right-0  z-10 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150  " />
+          <RiArrowDropRightLine className=" mt-36 absolute  right-[0] lg:right-0  z-10 h-[45px] w-[45px] rounded-full bg-primary shadow-md  text-white hover:bg-[#D4E9FF] hover:text-gray-800 transition ease-in-out delay-150  " />
         </button>
         <button onClick={() => slider?.current?.slickPrev()}>
-          <RiArrowDropLeftLine className="absolute mt-36 left-[0] lg:left-0 z-20 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150" />
+          <RiArrowDropLeftLine className="absolute mt-36 left-[0] lg:left-0 z-20 h-[45px] w-[45px] rounded-full bg-primary text-white shadow-md   hover:bg-[#D4E9FF] hover:text-gray-800 transition ease-in-out delay-150" />
         </button>
       </div>
-      <Slider ref={slider} className="px-24 bg-white" {...settings}>
+      <Slider ref={slider} className="lg:px-16 bg-white" {...settings}>
         {carts.map((cart) => (
           <div key={cart.id}>
-            <div className="card-item m-4 border border-secondary max-h-96 transition ease-in-out delay-150 rounded-md mx-3">
+            <div className="card-item m-4 border border-secondary  transition ease-in-out delay-150 rounded-md mx-3">
               <div className="h-44 p-3">
                 <img className="w-full h-full rounded-md" src={cart?.img} />
               </div>
@@ -130,7 +130,7 @@ const CardCarusol = () => {
                   <span className="">{cart?.stodio}</span>
                 </div>
               </div>
-              <button className="bg-primary w-full rounded-t-none mt-8 text-center text-white hover:bg-green-200 hover:text-gray-600 px-4 py-2 rounded-md">
+              <button className="bg-primary w-full rounded-t-none mt-8 text-center text-white hover:bg-[#D4E9FF] hover:text-gray-800 px-4 py-2 rounded-md">
                 See Details
               </button>
             </div>

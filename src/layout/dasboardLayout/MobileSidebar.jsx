@@ -31,7 +31,7 @@ const MobileSidebar = ({
     <div
       className={`${
         !isCollups ? "left-0" : "left-[-1200px]"
-      } bg-white  absolute top-0 left-0 block lg:hidden pt-6  duration-300  text-gray-900 rounded-md text-secondary z-[9999] shadow-md bottom-0 px-2 w-80 md:w-96`}
+      } bg-white  absolute top-0 left-0 block lg:hidden pt-6  duration-300  text-gray-900 rounded-md  z-[9999] shadow-md bottom-0 px-2 w-80 md:w-96`}
     >
       <ul className="flex flex-col h-full ">
         <li

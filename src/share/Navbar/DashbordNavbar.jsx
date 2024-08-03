@@ -26,13 +26,13 @@ const DashboardNavbar = ({ handleClick, menuState }) => {
           {/* <CgMenuMotion className='text-secondary' size={24} onClick={handleClick} /> */}
           {menuState ? (
             <FaRegArrowAltCircleLeft
-              className="text-secondary"
+              className="text-primary"
               size={24}
               onClick={handleClick}
             />
           ) : (
             <FaRegArrowAltCircleRight
-              className="text-secondary"
+              className="text-primary"
               size={24}
               onClick={handleClick}
             />
@@ -62,7 +62,7 @@ const DashboardNavbar = ({ handleClick, menuState }) => {
         </div>
       </div>
       <div
-        className={`bg-gray-100 text-secondary absolute top-14 right-3 rounded-md ${
+        className={` text-secondary absolute top-14 right-3 rounded-md ${
           hover ? "visible" : "invisible"
         } `}
         onMouseEnter={() => setHover(true)}

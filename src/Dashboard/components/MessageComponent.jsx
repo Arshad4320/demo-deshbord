@@ -1,9 +1,9 @@
 import React from "react";
-import Heading from "./components/Heading";
+import Heading from "./Heading";
 
 const MessageComponent = () => {
   return (
-    <div className=" bg-white p-6  m-8">
+    <div className=" bg-white p-6 mb-4 ">
       <div className="flex justify-between">
         <div>
           <div>
