@@ -37,9 +37,7 @@ const DasboardLayout = () => {
         className={`text-center py-2 text-secondary ${
           !isCollups ? "hidden" : null
         }`}
-      >
-        © 2023 almadhbd team. All Rights Reserved
-      </h1>
+      ></h1>
     </div>
   );
 };
