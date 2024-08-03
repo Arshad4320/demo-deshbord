@@ -1,34 +1,44 @@
 import React from "react";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaLocationDot } from "react-icons/fa6";
 import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
 import Slider from "react-slick/lib/slider";
-
-// import img from "../../assets/image/carusol/hosue.png";
-// import img2 from "../../assets/image/carusol/apartment.png";
-// import img3 from "../../assets/image/carusol/office.png";
-// import img4 from "../../assets/image/carusol/vila.png";
+import { FaCar } from "react-icons/fa";
+import img from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.png";
+import img3 from "../../assets/img3.png";
+import img4 from "../../assets/img4.png";
 import { Link } from "react-router-dom";
 
 const carts = [
   {
     id: 1,
-    // img: img,
-    name: "House",
+    img: img,
+    name: "Alexander Cort",
+    location: "123 Elm Street, New York",
+    stodio: "Mobile & In-Studio",
   },
   {
     id: 2,
-    // img: img2,
-    name: "Apartment",
+    img: img2,
+    name: "Michael Smith",
+    location: "789 Maple Drive, NY",
+    stodio: "Mobile & In-Studio",
   },
   {
     id: 3,
-    // img: img3,
-    name: "Office",
+    img: img3,
+    name: "David Martinez",
+    location: "Pine Street, San Fran",
+    stodio: "Mobile & In-Studio",
   },
   {
     id: 4,
-    // img: img4,
-    name: "Villa",
+    img: img4,
+    name: "Jennifer Lee",
+    location: "567 Cedar Lane, Miami",
+    stodio: "Mobile & In-Studio",
   },
 ];
 
@@ -44,13 +54,10 @@ const CardCarusol = () => {
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 2,
           infinite: true,
           dots: false,
-          //   centerMode: true,
-          //   centerPadding: "0 20px",
-          //   centerMargin: " 20px",
         },
       },
       {
@@ -60,22 +67,15 @@ const CardCarusol = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          //   centerMode: true,
-          //   centerPadding: "0 20px",
-          //   centerMargin: " 20px",
         },
       },
-
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          //   centerMode: true,
-          //   centerPadding: "0 20px",
-          //   centerMargin: " 20px",
         },
       },
       {
@@ -90,11 +90,10 @@ const CardCarusol = () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-          //   centerMode: true,
         },
       },
     ],
@@ -102,33 +101,43 @@ const CardCarusol = () => {
   const slider = React.useRef(null);
 
   return (
-    <>
+    <div className="mx-8 mb-8">
       <div className="relative mx-4  md:mx-7 lg:mx-4">
         <button className="" onClick={() => slider?.current?.slickNext()}>
-          <RiArrowDropRightLine className=" mt-24 absolute  right-[0] lg:right-0  z-10 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150  " />
+          <RiArrowDropRightLine className=" mt-36 absolute  right-[0] lg:right-0  z-10 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150  " />
         </button>
         <button onClick={() => slider?.current?.slickPrev()}>
-          <RiArrowDropLeftLine className="absolute mt-24 left-[0] lg:left-0 z-20 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150" />
+          <RiArrowDropLeftLine className="absolute mt-36 left-[0] lg:left-0 z-20 h-[45px] w-[45px] rounded-full bg-gray-50 shadow-md  text-gray-700 hover:bg-secondary hover:text-white transition ease-in-out delay-150" />
         </button>
       </div>
-      <Slider ref={slider} className="px-18" {...settings}>
+      <Slider ref={slider} className="px-24 bg-white" {...settings}>
         {carts.map((cart) => (
-          <Link to={`/properties/city/${cart.id}`}>
-            <div
-              key={cart.id}
-              className="  p-12 hover:bg-white hover:shadow-2xl transition ease-in-out delay-150 rounded-md "
-            >
-              <div className="flex justify-center items-center ">
-                <img className=" " src={cart.img} />
+          <div key={cart.id}>
+            <div className="card-item m-4 border border-secondary max-h-96 transition ease-in-out delay-150 rounded-md mx-3">
+              <div className="h-44 p-3">
+                <img className="w-full h-full rounded-md" src={cart?.img} />
               </div>
-              <h3 className="text-center text-gray-700 text-lg mt-4 font-semibold">
-                {cart.name}
-              </h3>
+              <div className="px-3">
+                <h3 className="text-gray-800 text-xl mt-4 font-medium">
+                  {cart?.name}
+                </h3>
+                <div className="flex gap-1.5 items-center my-1 text-gray-700">
+                  <FaLocationDot />
+                  <span className="">{cart?.location}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-gray-700">
+                  <FaCar />
+                  <span className="">{cart?.stodio}</span>
+                </div>
+              </div>
+              <button className="bg-primary w-full rounded-t-none mt-8 text-center text-white hover:bg-green-200 hover:text-gray-600 px-4 py-2 rounded-md">
+                See Details
+              </button>
             </div>
-          </Link>
+          </div>
         ))}
       </Slider>
-    </>
+    </div>
   );
 };
 

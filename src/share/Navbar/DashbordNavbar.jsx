@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import { CgMenuMotion } from "react-icons/cg";
+
 import { AiOutlineUser } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
-import { BiSolidDownArrow, BiSearchAlt2 } from "react-icons/bi";
-import { RiNotification4Line } from "react-icons/ri";
+
 import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const DashboardNavbar = ({ handleClick, menuState }) => {
   const role = "User";
   const [hover, setHover] = useState(false);
-  const dispatch = useDispatch();
+
   const handleLogout = () => {
     dispatch(removeUser());
     toast.success("Signout Success");
