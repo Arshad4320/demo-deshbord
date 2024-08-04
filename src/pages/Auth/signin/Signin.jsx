@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { AuthProvider } from "../../../Context/AuthContext";
-import swal from "sweetalert"; // assuming you are using sweetalert
+
 import { toast } from "react-toastify";
 
 const Signin = () => {
