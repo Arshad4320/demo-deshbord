@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import img from "../../../assets/img1.jpg";
-import swal from "sweetalert";
+
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import img from "../../../assets/img1.jpg";
 import { AuthProvider } from "./../../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { register, handleSubmit } = useForm();
@@ -37,8 +37,8 @@ const Signup = () => {
       const createUserResult = await createUser(data.email, data.password);
       const userResult = createUserResult.user;
       console.log(userResult);
-      swal("user created successfully");
-      navigate("/signin");
+      toast.success("User created successfully");
+      navigate("/");
     } catch (error) {
       console.error(error);
       setSignUPError("something went wrong");
@@ -94,20 +94,23 @@ const Signup = () => {
               </div>
               {signUpError && <p className="text-red-500">{signUpError}</p>}
               <div>
-                <button className="w-2/3 mx-auto cursor-pointer" type="submit">
+                <button
+                  type="submit"
+                  className="bg-primary w-2/3 mx-auto cursor-pointer  mt-8 text-center text-white hover:bg-[#D4E9FF] hover:text-gray-800 px-4 py-2 rounded-md "
+                >
                   Sign Up
                 </button>
               </div>
+              <p className="text-gray-800 text-center text-[16px] my-4 font-medium">
+                Already have an account ?
+                <Link
+                  to="/signin"
+                  className="underline text-primary duration-300"
+                >
+                  Signin
+                </Link>
+              </p>
             </form>
-            <p className="text-gray-800 text-center text-[16px] my-4 font-medium">
-              Already have an account ?
-              <Link
-                to="/signin"
-                className="underline text-primary duration-300"
-              >
-                Signin
-              </Link>
-            </p>
           </div>
         </div>
         <div className="relative  ">

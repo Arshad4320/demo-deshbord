@@ -8,13 +8,9 @@ import {
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
 import { AuthProvider } from "../../Context/AuthContext";
 
 const DashboardNavbar = ({ handleClick, menuState }) => {
-  const role = "User";
-  const [hover, setHover] = useState(false);
-
   const { user, logOut } = useContext(AuthProvider);
   console.log(user);
   const handleLogOut = () => {

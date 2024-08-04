@@ -10,6 +10,7 @@ import { TbCategory } from "react-icons/tb";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { LuYoutube } from "react-icons/lu";
 import { RxDashboard } from "react-icons/rx";
+import { FaBlogger, FaSearch } from "react-icons/fa";
 const Sidebar = ({ menuState }) => {
   const [cuisine, setCuisine] = useState(false);
   const [product, setProduct] = useState(false);
@@ -30,9 +31,7 @@ const Sidebar = ({ menuState }) => {
 
             <Link to="/">
               {" "}
-              <h1 className="text-2xl ml-3 text-primary uppercase">
-                Al Madh Bd
-              </h1>
+              <h1 className="text-2xl ml-3 text-primary uppercase">Logo</h1>
             </Link>
           </div>
         </li>
@@ -45,197 +44,30 @@ const Sidebar = ({ menuState }) => {
             </div>
           </li>
         </Link>
-        <Link to="/dashboard">
-          <li className="mt-4 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-            <div className="flex items-center gap-3">
-              <RxDashboard />
-              {menuState && <span>Dashboard</span>}
-            </div>
-          </li>
-        </Link>
 
-        <Link to="/dashboard/order">
-          <li className="mt-4 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-            <div className="flex items-center gap-3">
-              <HiOutlineShoppingCart />
-              {menuState && <span>Order</span>}
-            </div>
-          </li>
-        </Link>
+        <li className="mt-4 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
+          <div className="flex items-center gap-3">
+            <GoPeople />
+            {menuState && <span>New List</span>}
+          </div>
+        </li>
 
-        {/* user menu start  */}
+        <li className="mt-4 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
+          <div className="flex items-center gap-3">
+            <FaSearch />
+            {menuState && <span>Search</span>}
+          </div>
+        </li>
+
         <li
           className="mt-2 duration-300 flex justify-between items-center gap-3 hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2"
           onClick={() => setCuisine(!cuisine)}
         >
           <div className="flex items-center gap-3">
-            <GoPeople />
-            {menuState && <span>User</span>}
+            <FaBlogger />
+            {menuState && <span>About</span>}
           </div>
-          {cuisine ? (
-            <IoIosArrowDown className={`${!menuState && "hidden"}`} />
-          ) : (
-            <IoIosArrowForward className={`${!menuState && "hidden"}`} />
-          )}
         </li>
-        <div
-          className={`pl-5 transition duration-300  ${
-            cuisine ? "block  duration-300" : "hidden  duration-300"
-          }`}
-        >
-          <Link to="/dashboard/user/get-users">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {menuState && <span>User List</span>}
-              </div>
-            </li>
-          </Link>
-        </div>
-        {/******user menu end********/}
-        {/* category menu start  */}
-        <li
-          className="mt-2 duration-300 flex justify-between items-center gap-3 hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2"
-          onClick={() => setCategory(!category)}
-        >
-          <div className="flex items-center gap-3">
-            <TbCategory />
-            {menuState && <span>Category</span>}
-          </div>
-          {category ? (
-            <IoIosArrowDown className={`${!menuState && "hidden"}`} />
-          ) : (
-            <IoIosArrowForward className={`${!menuState && "hidden"}`} />
-          )}
-        </li>
-        <div
-          className={`pl-5 transition duration-300  ${
-            category ? "block  duration-300" : "hidden  duration-300"
-          }`}
-        >
-          <Link to="/dashboard/add-category">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {category && <span>Add Category</span>}
-              </div>
-            </li>
-          </Link>
-          <Link to="/dashboard/list-category">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {menuState && <span>Category List</span>}
-              </div>
-            </li>
-          </Link>
-        </div>
-        {/******categroy menu end********/}
-        {/* product menu start  */}
-        <li
-          className="mt-2 duration-300 flex justify-between items-center gap-3 hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2"
-          onClick={() => setProduct(!product)}
-        >
-          <div className="flex items-center gap-3">
-            <LiaProductHunt />
-            {menuState && <span>Product</span>}
-          </div>
-          {product ? (
-            <IoIosArrowDown className={`${!menuState && "hidden"}`} />
-          ) : (
-            <IoIosArrowForward className={`${!menuState && "hidden"}`} />
-          )}
-        </li>
-        <div
-          className={`pl-5 transition duration-300  ${
-            product ? "block  duration-300" : "hidden  duration-300"
-          }`}
-        >
-          <Link to="/dashboard/add-product">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {product && <span>Add Product</span>}
-              </div>
-            </li>
-          </Link>
-          <Link to="/dashboard/list-product">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {menuState && <span>Product List</span>}
-              </div>
-            </li>
-          </Link>
-        </div>
-        {/******product menu end********/}
-        {/* blog menu start  */}
-        <li
-          className="mt-2 duration-300 flex justify-between items-center gap-3 hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2"
-          onClick={() => setBlog(!blog)}
-        >
-          <div className="flex items-center gap-3">
-            <ImBlogger2 />
-            {menuState && <span>Blog</span>}
-          </div>
-          {blog ? (
-            <IoIosArrowDown className={`${!menuState && "hidden"}`} />
-          ) : (
-            <IoIosArrowForward className={`${!menuState && "hidden"}`} />
-          )}
-        </li>
-        <div
-          className={`pl-5 transition duration-300  ${
-            blog ? "block  duration-300" : "hidden  duration-300"
-          }`}
-        >
-          <Link to="/dashboard/add-blog">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {blog && <span>Add Blog</span>}
-              </div>
-            </li>
-          </Link>
-          <Link to="/dashboard/blog-list">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {menuState && <span>Blog List</span>}
-              </div>
-            </li>
-          </Link>
-        </div>
-        {/******blog menu end********/}
-        {/* vidio menu start  */}
-        <li
-          className="mt-2 duration-300 flex justify-between items-center gap-3 hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2"
-          onClick={() => setVidio(!vidio)}
-        >
-          <div className="flex items-center gap-3">
-            <LuYoutube />
-            {menuState && <span>Video</span>}
-          </div>
-          {blog ? (
-            <IoIosArrowDown className={`${!menuState && "hidden"}`} />
-          ) : (
-            <IoIosArrowForward className={`${!menuState && "hidden"}`} />
-          )}
-        </li>
-        <div
-          className={`pl-5 transition duration-300  ${
-            vidio ? "block  duration-300" : "hidden  duration-300"
-          }`}
-        >
-          <Link to="/dashboard/add-vidio">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {vidio && <span>Add Video</span>}
-              </div>
-            </li>
-          </Link>
-          <Link to="/dashboard/vidio-list">
-            <li className="mt-2 flex justify-between items-center hover:shadow-md cursor-pointer rounded px-2 py-1 mx-2">
-              <div className="flex items-center gap-3">
-                {menuState && <span>Video List</span>}
-              </div>
-            </li>
-          </Link>
-        </div>
-        {/******vidio menu end********/}
       </ul>
     </div>
   );

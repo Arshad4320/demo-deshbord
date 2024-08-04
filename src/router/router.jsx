@@ -6,11 +6,16 @@ import Home from "../Dashboard/Home";
 import Signin from "../pages/Auth/signin/Signin";
 import Signup from "../pages/Auth/signup/Signup";
 import NotFound from "../pages/NotFound";
+import PrivateRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DasboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DasboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/",
